@@ -122,7 +122,7 @@ trait RepositoryTrait
         $options['query'] = $this->removeNullValues($options['query']);
 
         $response = $this->client->request(self::BASE_URI . '/search', 'GET', $options);
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -133,7 +133,7 @@ trait RepositoryTrait
     public function get(string $owner, string $repositoryName): array
     {
         $response = $this->client->request(self::BASE_URI . '/' . $owner . '/' . $repositoryName);
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
