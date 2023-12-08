@@ -42,7 +42,7 @@ trait PullsTrait
 
         $response = $this->client->request(self::BASE_URI . '/' . $owner . '/' . $repositoryName . '/pulls', 'GET', $options);
 
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        return \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -88,7 +88,7 @@ trait PullsTrait
 
         $response = $this->client->request(self::BASE_URI . '/' . $owner . '/' . $repositoryName . '/pulls', 'POST', $options);
 
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        return \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -105,7 +105,7 @@ trait PullsTrait
     {
         $response = $this->client->request(self::BASE_URI . '/' . $owner . '/' . $repositoryName . '/pulls/' . $index, 'GET');
 
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        return \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -153,7 +153,7 @@ trait PullsTrait
 
         $response = $this->client->request(self::BASE_URI . '/' . $owner . '/' . $repositoryName . '/pulls/' . $index, 'PATCH', $options);
 
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        return \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
     }
 
     /**
